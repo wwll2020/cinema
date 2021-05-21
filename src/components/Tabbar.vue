@@ -22,14 +22,16 @@ nav{
     bottom:0;
     left:0;
     width:100%;
-    height:56px;
+    height:50px;
     line-height: 20px;
     text-align: center;
     background: #fff;
+    z-index: 99;
     ul{
         padding-inline-start:0;
         list-style: none;
         display: flex;
+        margin-top:10px;
         .hlactive{
                  color:red;
             }

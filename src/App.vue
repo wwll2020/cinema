@@ -1,24 +1,27 @@
 <template>
   <div>
     <!-- 路由容器 -->
-    <router-view></router-view>
-    <tabbar></tabbar>
+    <section><router-view></router-view></section>
+    <tabbar v-show="isTabbarShow"></tabbar>
   </div>
 </template>
 <script>
 import tabbar from './components/Tabbar'
-import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
   data () {
     return {
-
     }
   },
   components: {
     tabbar
   },
+  computed: {
+    ...mapState('TabbarModule', ['isTabbarShow'])
+  },
   mounted () {
+    // console.log('TabbarModule',['isTabbarShow']);
     // 1.魅力惠
     // axios.get('http://www.mei.com/appapi/silo/navigationAll/v3?timestamp=1621329534400&summary=9a7857bfe04a70c01f0fd08f9c778d5d')
     //   .then(res => {
@@ -46,5 +49,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  li{
+    list-style: none;
+  }
+  *{
+    margin:0;
+    padding:0;
+    touch-action: manipulation;
+  }
+  html,body{
+    height:100%;
+  }
+  section{
+    padding-bottom: 56px;
+  }
 </style>
